@@ -1,0 +1,59 @@
+.wrapper_headerMain {
+  background-color: #f2f0f1;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .bookDiscovery {
+    display: flex;
+    flex-direction: column;
+    padding: 3rem 5rem;
+    color: #333;
+    font-family: "Arial", sans-serif;
+
+    .content {
+      max-width: 400px;
+
+      h1 {
+        font-size: 3rem;
+        margin-bottom: 15px;
+      }
+
+      p {
+        line-height: 1.6;
+        margin-bottom: 20px;
+      }
+
+      .readNowBtn {
+        background-color: #007bff; /* Blue button background */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 26px;
+      }
+    }
+    .wrapper_countup {
+      margin: 4rem 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-evenly;
+      .countUp {
+        font-size: 30px;
+        font-weight: 700;
+      }
+    }
+  }
+  .wrapper_image {
+    height: 80vh;
+    width: 900px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 20% 80%;
+    }
+  }
+}

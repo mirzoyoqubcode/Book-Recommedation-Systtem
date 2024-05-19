@@ -1,0 +1,25 @@
+.testimonialContainer {
+  border: 1px solid red;
+  margin: 8rem auto;
+  width: 85%;
+}
+
+.testimonialSlider {
+  display: flex; /* Basic horizontal slider */
+  overflow-x: auto; /* Enable scrolling if needed */
+}
+
+.testimonialCard {
+  /* Individual testimonial card styling */
+  border: 1px solid #ccc;
+  padding: 20px;
+  margin: 10px; /* Adjust spacing between cards */
+}
+
+.rating {
+  color: gold;
+}
+
+.quote {
+  font-style: italic;
+}
