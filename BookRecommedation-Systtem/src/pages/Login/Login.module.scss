@@ -1,0 +1,154 @@
+/* Basic container styles */
+.signupContainer {
+  display: flex;
+  justify-content: space-between; /* Center the form and image horizontally */
+  align-items: center;
+  min-height: 100vh;
+  background-color: #f8f8f8; /* Subtle background color */
+}
+
+/* Image Container Styles */
+.imageContainer {
+  flex: 1; /* Take up available space */
+  padding: 20px;
+  text-align: center; /* Center the image */
+}
+
+.formContainer {
+  flex: 1;
+  max-width: 400px;
+  padding: 40px;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* More prominent shadow */
+  background-color: #fff; /* White background for the form */
+  text-align: center;
+  margin: 0 8rem;
+}
+
+/* Form container styles */
+.formContainer {
+  flex: 1;
+  padding: 40px;
+  background-color: #fff; // White background
+  border-radius: 10px 0 0 10px; // Rounded corners on the left side only
+
+  .logo {
+    width: 120px;
+    margin-bottom: 30px;
+  }
+
+  .title {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    .inputGroup {
+      margin-bottom: 25px;
+      text-align: start;
+      label {
+        display: block;
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      input[type="email"],
+      input[type="password"] {
+        width: 100%;
+        padding: 12px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-sizing: border-box;
+      }
+    }
+
+    .radioGroup {
+      display: flex;
+      gap: 20px;
+
+      label {
+        display: flex;
+        align-items: center;
+        cursor: pointer; // Make the radio label clickable
+      }
+
+      input[type="radio"] {
+        margin-right: 5px;
+        cursor: pointer; // Make the radio button itself clickable
+      }
+    }
+
+    .termsCheckbox {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+
+      input[type="checkbox"] {
+        margin-right: 5px;
+        cursor: pointer; // Make the checkbox clickable
+      }
+    }
+
+    button {
+      background-color: #689f38;
+      color: white;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      font-size: 16px;
+      width: 100%; // Make button full width
+
+      &:hover {
+        background-color: darken(#689f38, 10%); // Darken on hover
+      }
+    }
+  }
+
+  .socialLogin {
+    margin-top: 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: center; // Center the social login buttons
+
+    button {
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 14px;
+
+      &.googleBtn {
+        background-color: #db4437; // Google red
+        color: white;
+
+        &:hover {
+          background-color: darken(#db4437, 10%);
+        }
+      }
+
+      &.appleBtn {
+        background-color: #000; // Apple black
+        color: white;
+
+        &:hover {
+          background-color: darken(#000, 10%);
+        }
+      }
+    }
+  }
+
+  .signupLink {
+    margin-top: 15px;
+    font-size: 14px;
+    text-align: center;
+
+    a {
+      color: #007bff; // Blue link color
+      text-decoration: none;
+    }
+  }
+}

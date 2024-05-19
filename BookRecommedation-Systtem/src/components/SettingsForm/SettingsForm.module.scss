@@ -1,0 +1,65 @@
+$primaryGreen: #689f38; // Define the primary green color
+
+.settingsContainer {
+  max-width: 500px;
+  margin: 4rem auto;
+  padding: 30px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+
+  .form {
+    .inputGroup {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 15px;
+
+      label {
+        font-size: 14px;
+        margin-bottom: 5px;
+      }
+
+      input[type="email"],
+      input[type="password"],
+      input[type="text"] {
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+    }
+
+    .categoryGroup {
+      margin-bottom: 20px;
+      span {
+        display: block;
+        margin-bottom: 5px;
+      }
+      .radioButtons {
+        display: flex;
+        gap: 10px;
+        label {
+          display: flex;
+          align-items: center;
+          input[type="radio"] {
+            margin-right: 5px;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+    .changeButton {
+      background-color: $primaryGreen;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+  }
+}

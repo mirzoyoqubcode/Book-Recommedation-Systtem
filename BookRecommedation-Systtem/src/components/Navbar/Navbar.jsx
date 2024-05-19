@@ -29,7 +29,9 @@ const Navbar = () => {
             onChange={handleInputChange}
           />
         </div>
-        <CgProfile className={styles.icon_profile} />
+        <Link to={"signupform"} className={styles.Link}>
+          <CgProfile className={styles.icon_profile} />
+        </Link>
       </div>
     </div>
   );

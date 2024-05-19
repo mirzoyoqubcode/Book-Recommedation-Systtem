@@ -18,17 +18,19 @@ const HeaderMain = () => {
             <button className={styles.readNowBtn}>Read Now</button>
           </Link>
         </div>
-        <div className={styles.wrapper_countup}>
-          <span className={styles.countUp}>
-            <CountUp end={200} />+
-          </span>
-          <span className={styles.countUp}>
-            <CountUp end={2000} />+
-          </span>
-          <span className={styles.countUp}>
-            <CountUp end={30000} />+
-          </span>
-        </div>
+        <Link to={"/statistic"} className={styles.stataLink}>
+          <div className={styles.wrapper_countup}>
+            <span className={styles.countUp}>
+              <CountUp end={200} />+
+            </span>
+            <span className={styles.countUp}>
+              <CountUp end={2000} />+
+            </span>
+            <span className={styles.countUp}>
+              <CountUp end={30000} />+
+            </span>
+          </div>
+        </Link>
       </div>
       <div className={styles.wrapper_image}>
         <img src={booksImage} alt="" />

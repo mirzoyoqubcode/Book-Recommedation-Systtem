@@ -25,7 +25,7 @@ const BookProduct = () => {
   return (
     <div>
       <div className={styles.productPage}>
-        <div className={styles.breadcrumbs}>Home - Books - T-shirts</div>
+        <div className={styles.breadcrumbs}>Home - Books - Da Vinci Code</div>
 
         <div className={styles.productContainer}>
           <div className={styles.imageGallery}>
@@ -60,13 +60,16 @@ const BookProduct = () => {
               The truth is always the right path, even if it leads us into the
               unknown.
             </p>
-
+            <p className={styles.extraDesc}>
+              If you had read this book, please give us your feedback!
+            </p>
             <form onSubmit={handleSubmit} className={styles.form}>
               <input type="number" placeholder="How much does it take?" />
               <select>
                 <option value="online">Online</option>
                 <option value="offline">Offline</option>
               </select>
+              <input type="text" placeholder="Ratings" />
               <textarea
                 placeholder="Comment"
                 value={comment}
