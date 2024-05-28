@@ -29,6 +29,11 @@ const Navbar = () => {
             onChange={handleInputChange}
           />
         </div>
+
+        <span className={styles.searchIconMobile}>
+          <FaSearch />
+        </span>
+
         <Link to={"signupform"} className={styles.Link}>
           <CgProfile className={styles.icon_profile} />
         </Link>

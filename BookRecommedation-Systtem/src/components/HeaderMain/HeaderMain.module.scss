@@ -18,6 +18,9 @@
       h1 {
         font-size: 3rem;
         margin-bottom: 15px;
+        @media screen and (max-width: 1290px) {
+          font-size: 24px;
+        }
       }
 
       p {
@@ -33,6 +36,9 @@
         border-radius: 5px;
         cursor: pointer;
         font-size: 26px;
+        @media screen and (max-width: 1290px) {
+          font-size: 15px;
+        }
       }
     }
     .wrapper_countup {
@@ -43,10 +49,16 @@
       .countUp {
         font-size: 30px;
         font-weight: 700;
+        @media screen and (max-width: 1290px) {
+          font-size: 20px;
+        }
       }
     }
   }
   .wrapper_image {
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
     height: 80vh;
     width: 900px;
     img {

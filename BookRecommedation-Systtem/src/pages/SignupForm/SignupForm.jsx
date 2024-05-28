@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styles from "./SignupForm.module.scss";
-import logo from "../../assets/logo.png"; // Replace with your logo image path
-import leafImage from "../../assets/leaf.png"; // Replace with your leaf image path
+import logo from "../../assets/logo.png";
+import leafImage from "../../assets/leaf.png";
 import { Link } from "react-router-dom";
 function SignupForm() {
-  const [email, setEmail] = useState("rikhom21@gmail.com");
-  const [password, setPassword] = useState("rhom264"); // Use actual default values
-  const [category, setCategory] = useState("reader"); // Default selection
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [category, setCategory] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();

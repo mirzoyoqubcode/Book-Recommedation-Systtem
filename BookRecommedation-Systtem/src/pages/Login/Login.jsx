@@ -1,64 +1,69 @@
 import React, { useState } from "react";
-import styles from "./Login.module.scss";
-import logo from "../../assets/logo.png";
-import leafImage from "../../assets/leaf.png";
-import { Link } from "react-router-dom";
-const Login = () => {
-  const [email, setEmail] = useState("rikhom21@gmail.com");
-  const [password, setPassword] = useState("rhom264"); // Use actual default values
-  const [category, setCategory] = useState("reader"); // Default selection
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Your signup logic here
+function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState(null);
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("http://bookrc.uz/api/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password }),
+      });
+
+      if (response.ok) {
+        const data = await response.json();
+        const token = data.token;
+
+        // Store the token in local storage (or a more secure mechanism)
+        localStorage.setItem("token", token);
+
+        // Login successful, handle success state (redirect, etc.)
+        console.log("token", token); // Replace with your desired success message
+      } else {
+        const errorData = await response.json(); // Assuming the error response includes an error message
+        setErrorMessage(errorData.message || "Invalid email or password"); // Set error message
+      }
+    } catch (error) {
+      console.error("Login error:", error);
+      setErrorMessage("An error occurred. Please try again."); // Generic error message
+    }
   };
+
   return (
-    <div className={styles.signupContainer}>
-      <div className={styles.formContainer}>
-        <img src={logo} alt="Logo" className={styles.logo} />
-        <h2 className={styles.title}>Welcome back!</h2>
-        <p>Enter your Credentials to access your account</p>
-
-        <form onSubmit={handleSubmit} className={styles.form}>
-          <div className={styles.inputGroup}>
-            <label htmlFor="email">Email address</label>
-            <input
-              type="email"
-              id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              required
-            />
-          </div>
-
-          <div className={styles.inputGroup}>
-            <label htmlFor="password">Password</label>
-            <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              required
-            />
-          </div>
-
-          <button type="submit">Sign in</button>
-        </form>
-
-        <div className={styles.socialLogin}>
-          <button className={styles.googleBtn}>Sign in with Google</button>
-          <button className={styles.appleBtn}>Sign in with Apple</button>
-        </div>
-
-        <p className={styles.signupLink}>
-          Don't have an account? <Link to={"/signupform"}>Sign up</Link>
-        </p>
+    <form onSubmit={handleSubmit}>
+      {errorMessage && <p className="error-message">{errorMessage}</p>}
+      <div className="form-group">
+        <label htmlFor="email">Email address</label>
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
       </div>
-      <div className={styles.leafImage}>
-        <img src={leafImage} alt="Leaf" />
+      <div className="form-group">
+        <label htmlFor="password">Password</label>
+        <input
+          type="password"
+          className="form-control"
+          id="password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
+        />
       </div>
-    </div>
+      <button type="submit" className="btn btn-primary">
+        Login
+      </button>
+    </form>
   );
-};
+}
 
-export default Login;
+export default LoginForm;

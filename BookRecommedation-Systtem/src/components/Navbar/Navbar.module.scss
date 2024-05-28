@@ -7,6 +7,9 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media screen and (max-width: 800px) {
+    padding: 1rem 2rem;
+  }
   .rightWrapper {
     display: flex;
     align-items: center;
@@ -14,6 +17,21 @@
     font-size: 25px;
     .icon_profile {
       margin: 0 2rem;
+      @media screen and (max-width: 1000px) {
+        margin: 0;
+      }
+    }
+
+    .searchIconMobile {
+      margin-right: 10px;
+      cursor: pointer;
+      display: none;
+      @media screen and (max-width: 1000px) {
+        display: block;
+      }
+      @media screen and (max-width: 500px) {
+        display: none;
+      }
     }
   }
   .searchBar {
@@ -24,7 +42,9 @@
     border-radius: 25px;
     padding: 10px 15px;
     width: 300px;
-
+    @media screen and (max-width: 1000px) {
+      display: none;
+    }
     .searchIcon {
       margin-right: 10px;
     }
