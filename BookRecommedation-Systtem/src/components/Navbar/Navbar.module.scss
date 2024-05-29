@@ -1,7 +1,29 @@
 .wrapper {
-  .Link {
+  .links_admin {
+    margin: 13px 10px;
+  }
+  .books_list {
     text-decoration: none;
     color: black;
+    margin: 0 2rem;
+  }
+  .link_href {
+    text-decoration: none;
+    color: black;
+  }
+  .Link {
+    background-color: #007bff; /* Blue button background */
+    text-decoration: none;
+    color: white;
+    margin: 0 10px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    @media screen and (max-width: 1290px) {
+      font-size: 15px;
+    }
   }
   padding: 1rem 4rem;
   display: flex;
@@ -14,13 +36,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 25px;
-    .icon_profile {
-      margin: 0 2rem;
-      @media screen and (max-width: 1000px) {
-        margin: 0;
-      }
-    }
 
     .searchIconMobile {
       margin-right: 10px;

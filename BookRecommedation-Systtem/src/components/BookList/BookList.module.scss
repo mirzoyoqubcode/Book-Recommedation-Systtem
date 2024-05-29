@@ -1,0 +1,47 @@
+.bookListContainer {
+  height: 100vh;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+.sortOptions {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+
+  label {
+    margin-right: 10px;
+  }
+
+  select {
+    padding: 5px;
+    font-size: 1em;
+  }
+}
+
+.booksGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.bookCard {
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+
+  h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1em;
+    margin-bottom: 10px;
+  }
+}

@@ -1,69 +1,79 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import styles from "./Login.module.scss";
+import logo from "../../assets/logo.png";
+import leaf from "../../assets/leaf.png";
+const Login = () => {
+  const [formData, setFormData] = useState({
+    email: "",
+    password: "",
+  });
 
-function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [token, setToken] = useState("");
+  const [error, setError] = useState(null);
+  const navigate = useNavigate();
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-
+  const handleSubmit = async (e) => {
+    e.preventDefault();
     try {
-      const response = await fetch("http://bookrc.uz/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        const token = data.token;
-
-        // Store the token in local storage (or a more secure mechanism)
-        localStorage.setItem("token", token);
-
-        // Login successful, handle success state (redirect, etc.)
-        console.log("token", token); // Replace with your desired success message
-      } else {
-        const errorData = await response.json(); // Assuming the error response includes an error message
-        setErrorMessage(errorData.message || "Invalid email or password"); // Set error message
-      }
+      const response = await axios.post("http://bookrc.uz/api/login", formData);
+      const token = response.data.token; // Retrieve token from the response
+      setToken(token); // Update the token state
+      localStorage.setItem("token", token); // Store token in localStorage
+      navigate("/");
     } catch (error) {
-      console.error("Login error:", error);
-      setErrorMessage("An error occurred. Please try again."); // Generic error message
+      console.log(error);
+      setError(
+        error.response?.data?.message ||
+          "Login failed! Redirecting to registration..."
+      );
+      setTimeout(() => {
+        navigate("/register");
+      }, 3000);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {errorMessage && <p className="error-message">{errorMessage}</p>}
-      <div className="form-group">
-        <label htmlFor="email">Email address</label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+    <div className={styles.wrapper_mainLogin}>
+      <img src={leaf} alt="" className={styles.leaf} />
+      <div className={styles.loginContainer}>
+        <div className={styles.title_info}>
+          <img src={logo} alt="" />
+          <h1>Welcome back!</h1>
+          <p>Enter your Credentials to access your account</p>
+        </div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            onChange={handleChange}
+            required
+            className={styles.inputField}
+          />
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            onChange={handleChange}
+            required
+            className={styles.inputField}
+          />
+          <button type="submit" className={styles.loginButton}>
+            Login
+          </button>
+        </form>
+        {token && <p>Login successful! Your token: {token}</p>}
       </div>
-      <div className="form-group">
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          className="form-control"
-          id="password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-      </div>
-      <button type="submit" className="btn btn-primary">
-        Login
-      </button>
-    </form>
+    </div>
   );
-}
+};
 
-export default LoginForm;
+export default Login;

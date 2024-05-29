@@ -1,37 +1,29 @@
-.mostReadBooks {
-  margin: 2rem 0 15rem 0;
-  padding: 4rem 2rem;
-  height: 60vh;
-  h2 {
-    font-size: 30px;
+.container {
+  padding: 20px;
+  margin: 6rem 0;
+  .title_books {
     text-align: center;
+    margin: 2rem 0;
   }
+}
 
-  .bookList {
-    margin: 3rem 2rem;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    overflow-x: auto;
-    article {
-      span {
-        display: flex;
-        align-items: center;
-        gap: 5px;
-        color: #ffc633;
-      }
-    }
-  }
+.bookList {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
 
-  .viewAllBtn {
-    margin: 2rem 7rem;
-    background-color: #007bff;
-    color: white;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 22px;
+.viewAllButton {
+  background-color: #007bff; /* Blue button background */
+  color: white;
+  margin: 2rem 1rem;
+  float: right;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 17px;
+  @media screen and (max-width: 1290px) {
+    font-size: 15px;
   }
 }

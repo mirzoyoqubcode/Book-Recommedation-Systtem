@@ -18,7 +18,7 @@ const HeaderMain = () => {
             <button className={styles.readNowBtn}>Read Now</button>
           </Link>
         </div>
-        <Link to={"/statistic"} className={styles.stataLink}>
+        <Link className={styles.stataLink}>
           <div className={styles.wrapper_countup}>
             <span className={styles.countUp}>
               <CountUp end={200} />+

@@ -2,7 +2,6 @@ import React from "react";
 import Navbar from "../components/Navbar/Navbar";
 import HeaderMain from "../components/HeaderMain/HeaderMain";
 import ReadBooks from "../components/ReadBooks/ReadBooks";
-import Testimonials from "../components/Testimonials/Testimonial";
 import Footer from "../components/Footer/Footer";
 import ReviewSection from "../components/ReviewSection/ReviewSection";
 

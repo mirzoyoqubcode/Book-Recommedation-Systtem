@@ -1,0 +1,24 @@
+.book {
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  padding: 20px;
+  border-radius: 20px;
+  max-width: 350px;
+  max-height: 750px;
+  margin: 1rem 4rem;
+}
+
+.bookImage {
+  height: 400px;
+  width: 300px;
+  border-radius: 5px;
+}
+
+.bookTitle {
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.bookGenre {
+  font-size: 1em;
+  color: gray;
+}
